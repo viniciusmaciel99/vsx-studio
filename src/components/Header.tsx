@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
@@ -87,7 +88,18 @@ export const Header = () => {
           >
             <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
+                <ToggleButton href="/" selected={pathname === "/"}>
+                  <Flex padding="4">
+                    <Image
+                      src="/images/VSXwhite.png"
+                      alt="Home"
+                      width={80}
+                      height={20}
+                      style={{ height: '20px', width: 'auto' }}
+                      priority
+                    />
+                  </Flex>
+                </ToggleButton>
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
               {routes["/about"] && (
